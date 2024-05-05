@@ -1,10 +1,10 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.pokemon-list{
+.pokemon-list {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -12,27 +12,32 @@
   justify-content: center;
 }
 
-.pokemon{
+.pokemon {
   min-height: 20rem;
   width: 15rem;
   box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.452);
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  /* overflow: hidden; */
-  padding: 1rem 0rem ;
-  /* background: linear-gradient(
-    rgba(165, 42, 42, 0.276),
-    rgba(255, 166, 0, 0.237),
-    rgba(128, 0, 128, 0.167),
-    rgba(0, 128, 0, 0.178)
-  ); */
+  padding: 1rem 0rem;
+
   background: rgba(255, 255, 255, 0.532);
 }
-.show{
-  gap: .5rem;
+.pokemon .index {
+  background-color: rgb(219, 155, 166);
+  border-radius: 50%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  color: white;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.306);
+}
+.show {
+  gap: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,30 +45,32 @@
   font-weight: bold;
 }
 
-.pokemon img{
+.pokemon img {
   height: 10rem;
   width: 12rem;
-
 }
-.bg{
-  background:linear-gradient(rgba(255, 255, 255, 0.475),rgba(255, 255, 255, 0.434)), url("../bg-img.png");
+
+.bg {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.475),
+      rgba(255, 255, 255, 0.434)
+    ),
+    url("../bg-img.png");
   height: 100vh;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   overflow: scroll;
-  padding: 2rem 0 ;
- 
-  
+  padding: 2rem 0;
 }
-.container h1{
+.container h1 {
   background: linear-gradient(
     to right,
     rgba(255, 127, 80, 0.71),
     rgba(255, 105, 180, 0.687)
   );
- 
+
   display: inline-block;
   padding: 3px 2.5rem;
   border-radius: 10px;
@@ -81,7 +88,11 @@
   padding: 8px 15px;
   border-radius: 15px;
   font-weight: bold;
-  background-image: linear-gradient(to bottom, rgba(0, 255, 255, 0.603), rgba(32, 32, 163, 0.365));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 255, 255, 0.603),
+    rgba(32, 32, 163, 0.365)
+  );
   color: black;
   font-size: 12px;
 }
