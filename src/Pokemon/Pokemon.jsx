@@ -34,35 +34,74 @@ function Pokemon() {
       <div className="bg">
         <div className="container">
           <h1>Pokemon</h1>
+          {/* <div className="poke-parent">
+
+          <div className="poke-main"> */}
+
           <div className="pokemon-list">
             {firstData.map((item, index) => {
               const newMore = index === moreData;
 
               return (
-                <div className="pokemon" key={item.id}>
-                  <p className="index">{item.id}</p>
-                  <h3 className="name">{item.name.toUpperCase()}</h3>
-                  <img
-                    src={item.sprites.other.dream_world.front_default}
-                    alt=""
-                  />
-                  <button className="btn" onClick={() => handleMore(index)}>
-                    {newMore ? "Hide" : "Know More"}
-                  </button>
-                  {newMore && (
-                    <div className="show">
-                      <p>Height: {item.height}</p>
-                      <p>Weight: {item.weight}</p>
-                      {item.stats.map((stat, statIndex) => (
-                        <p key={statIndex}>
-                          {stat.stat.name}: {stat.base_stat}
-                        </p>
-                      ))}
+                <>
+                  <div className="poke-parent">
+                    <div className="poke-main">
+                      <div className="pokemon" key={item.id}>
+                        <p className="index">{item.id}</p>
+                        <h3 className="name">{item.name.toUpperCase()}</h3>
+                        <img
+                          src={item.sprites.other.dream_world.front_default}
+                          alt=""
+                        />
+                      </div>
+
+                      <div className="poke-back">
+                        <p className="index">{item.id}</p>
+                        <h3>{item.name.toUpperCase()}</h3>
+                        <img
+                          src={item.sprites.other.dream_world.front_default}
+                          alt=""
+                        />
+                        <button
+                          className="btn"
+                          onClick={() => handleMore(index)}
+                        >
+                          {newMore ? "Hide" : "Know More"}
+                        </button>
+                        {newMore && (
+                          <div className="show">
+                            <p>Height: {item.height}</p>
+                            <p>Weight: {item.weight}</p>
+                            {item.stats.map((stat, statIndex) => (
+                              <p key={statIndex}>
+                                {stat.stat.name}: {stat.base_stat}
+                              </p>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  )}
-                </div>
+                  </div>
+                </>
               );
             })}
+
+            {/* <div className="poke-back">
+              {firstData.map((item, index) => {
+                return (
+                  <div className="back" key={index}>
+                    <p className="index">{item.id}</p>
+                    <h3 className="name">{item.name.toUpperCase()}</h3>
+                    <img
+                      src={item.sprites.other.dream_world.front_default}
+                      alt=""
+                    />
+                  </div>
+                );
+              })}
+            </div> */}
+            {/* </div>
+          </div> */}
           </div>
         </div>
       </div>
