@@ -196,3 +196,15 @@ poke-main {
   height: 20rem;
   overflow: scroll;
 }
+.filter{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.filter select, input{
+  padding: .5rem .8rem;
+  border-radius: 1rem;
+  border: none;
+  font-weight: 600 ;
+  font-size: 1rem;
+}

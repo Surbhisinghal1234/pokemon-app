@@ -5,7 +5,10 @@ import "./pokemon.css";
 function Pokemon() {
   const [pokeData, setPokeData] = useState([]);
   const [firstData, setFirstData] = useState([]);
-  const [moreData, setMoreData] = useState(null);
+  const [moreData, setMoreData] = useState(false);
+  const [filterBySearch, setFilterBySearch] = useState("");
+  const [filterByName, setFilterByName] = useState("");
+
   useEffect(() => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
@@ -18,7 +21,7 @@ function Pokemon() {
   }, []);
 
   useEffect(() => {
-    pokeData?.map((dt) => {
+    pokeData?.forEach((dt) => {
       axios.get(dt.url).then((response) => {
         setFirstData((prev) => [...prev, response.data]);
       });
@@ -26,82 +29,84 @@ function Pokemon() {
   }, [pokeData]);
 
   function handleMore(index) {
-    setMoreData((prevIndex) => (prevIndex === index ? null : index));
+    setMoreData((prevIndex) => (prevIndex === index ? false : index));
   }
 
+  const filterData = firstData.filter((item) =>
+    item.name.toLowerCase().includes(filterBySearch.toLowerCase()) &&
+    item.name.toLowerCase().includes(filterByName.toLowerCase())
+  );
   return (
     <>
       <div className="bg">
         <div className="container">
           <h1>Pokemon</h1>
-          {/* <div className="poke-parent">
+          <div className="filter">
+            <select
+              value={filterByName}
+              onChange={(e) => setFilterByName(e.target.value)}
+              className=""
+            >
+              <option value="">Select a Pokemon</option>
+              {firstData.map((item) => (
+                <option key={item.id} value={item.name}>
+                  {item.name.toUpperCase()}
+                </option>
+              ))}
+            </select>
 
-          <div className="poke-main"> */}
+            <input
+              className="rounded px-5"
+              type="text"
+              placeholder="Search by name..."
+              value={filterBySearch}
+              onChange={(e) => setFilterBySearch(e.target.value)}
+            />
+          </div>
 
           <div className="pokemon-list">
-            {firstData.map((item, index) => {
+            {filterData.map((item, index) => {
               const newMore = index === moreData;
-
               return (
-                <>
-                  <div className="poke-parent">
-                    <div className="poke-main">
-                      <div className="pokemon" key={item.id}>
-                        <p className="index">{item.id}</p>
-                        <h3 className="name">{item.name.toUpperCase()}</h3>
-                        <img
-                          src={item.sprites.other.dream_world.front_default}
-                          alt=""
-                        />
-                      </div>
-
-                      <div className="poke-back">
-                        <p className="index">{item.id}</p>
-                        <h3>{item.name.toUpperCase()}</h3>
-                        <img
-                          src={item.sprites.other.dream_world.front_default}
-                          alt=""
-                        />
-                        <button
-                          className="btn"
-                          onClick={() => handleMore(index)}
-                        >
-                          {newMore ? "Hide" : "Know More"}
-                        </button>
-                        {newMore && (
-                          <div className="show">
-                            <p>Height: {item.height}</p>
-                            <p>Weight: {item.weight}</p>
-                            {item.stats.map((stat, statIndex) => (
-                              <p key={statIndex}>
-                                {stat.stat.name}: {stat.base_stat}
-                              </p>
-                            ))}
-                          </div>
-                        )}
-                      </div>
+                <div className="poke-parent" key={item.id}>
+                  <div className="poke-main">
+                    <div className="pokemon">
+                      <p className="index">{item.id}</p>
+                      <h3 className="name">{item.name.toUpperCase()}</h3>
+                      <img
+                        src={item.sprites.other.dream_world.front_default}
+                        alt=""
+                      />
+                    </div>
+                    <div className="poke-back">
+                      <p className="index">{item.id}</p>
+                      <h3>{item.name.toUpperCase()}</h3>
+                      <img
+                        src={item.sprites.other.dream_world.front_default}
+                        alt=""
+                      />
+                      <button
+                        className="btn"
+                        onClick={() => handleMore(index)}
+                      >
+                        {newMore ? "Hide" : "Know More"}
+                      </button>
+                      {newMore && (
+                        <div className="show">
+                          <p>Height: {item.height}</p>
+                          <p>Weight: {item.weight}</p>
+                          {item.stats.map((stat, statIndex) => (
+                            <p key={statIndex}>
+                              {stat.stat.name}: {stat.base_stat}
+                            </p>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
-
-            {/* <div className="poke-back">
-              {firstData.map((item, index) => {
-                return (
-                  <div className="back" key={index}>
-                    <p className="index">{item.id}</p>
-                    <h3 className="name">{item.name.toUpperCase()}</h3>
-                    <img
-                      src={item.sprites.other.dream_world.front_default}
-                      alt=""
-                    />
-                  </div>
-                );
-              })}
-            </div> */}
-            {/* </div>
-          </div> */}
           </div>
         </div>
       </div>
@@ -110,3 +115,4 @@ function Pokemon() {
 }
 
 export default Pokemon;
+
