@@ -11,6 +11,10 @@
   gap: 2rem;
   justify-content: center;
 }
+.github{
+  background-color: white;
+  border-radius: 50%;
+}
 
 /* .pokemon {
   min-height: 20rem;

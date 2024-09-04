@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./pokemon.css";
+import "../index.css"
 
 function Pokemon() {
   const [pokeData, setPokeData] = useState([]);
@@ -38,9 +39,14 @@ function Pokemon() {
   );
   return (
     <>
-      <div className="bg">
+      <div className="bg ">
+        <div  className="flex justify-end">
+
+      <a href="https://github.com/Surbhisinghal1234" className="bg-white  mr-5 rounded-full py-4 px-2 flex flex-col w-20 justify-center items-center font-bold hover:bg-red-400 hover:text-white transition-all ease-out duration-300" > <span>GitHub</span> <span  className="">Profile</span> </a>
+      </div>
+
         <div className="container">
-          <h1>Pokemon</h1>
+          <h1 className="text-3xl font-bold py-4">Pokemon</h1>
           <div className="filter">
             <select
               value={filterByName}
