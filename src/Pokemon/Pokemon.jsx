@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./pokemon.css";
 import "../index.css"
+import gitHubImg from "../assets/github.png"
 
 function Pokemon() {
   const [pokeData, setPokeData] = useState([]);
@@ -40,9 +41,12 @@ function Pokemon() {
   return (
     <>
       <div className="bg ">
-        <div  className="flex justify-end">
+        {/* <div  className="flex justify-end">
 
       <a href="https://github.com/Surbhisinghal1234" className="bg-white  mr-5 rounded-full py-4 px-2 flex flex-col w-20 justify-center items-center font-bold hover:bg-red-400 hover:text-white transition-all ease-out duration-300" > <span>GitHub</span> <span  className="">Profile</span> </a>
+      </div> */}
+      <div className="flex justify-end mr-5">
+        <a className="text-[12px] font-bold text-slate-800" href="https://github.com/Surbhisinghal1234" ><img className="w-16  rounded-full" src={gitHubImg} alt="" />GitHub profile</a>
       </div>
 
         <div className="container">
