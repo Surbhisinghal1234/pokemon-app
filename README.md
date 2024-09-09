@@ -3,6 +3,11 @@
 
 Welcome to the Pokémon App! This web application allows users to view Pokémon data, interact with Pokémon cards, and filter the Pokémon list based on various criteria. 
 
+## Live Demo
+
+[View on Vercel](https://pokemon-app-pearl-tau.vercel.app/)
+[View on Render](https://pokemon-app-ps27.onrender.com/)
+
 ## Description
 The Pokémon App fetches Pokémon data from an API and displays it in an interactive card format. Users can hover over cards to flip them, view detailed stats, and filter Pokémon based on search criteria.
 
@@ -18,5 +23,3 @@ The Pokémon App fetches Pokémon data from an API and displays it in an interac
 - **Pokémon API**: To fetch Pokémon data.
 - **JavaScript**: For handling data filtering and interactions.
 
-[View on Vercel](https://pokemon-app-pearl-tau.vercel.app/)
-[View on Render](https://pokemon-app-ps27.onrender.com/)
