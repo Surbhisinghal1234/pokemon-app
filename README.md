@@ -1,7 +1,7 @@
 
 # Pokémon App
 
-Welcome to the Pokémon App! This web application allows users to view Pokémon data, interact with Pokémon cards, and filter the Pokémon list based on various criteria. 
+Welcome to the Pokémon App! This web application allows users to view Pokémon data, interact with Pokémon cards, and filter the Pokémon cards based on the Pokémon's name. 
 
 ## Live Demo
 
